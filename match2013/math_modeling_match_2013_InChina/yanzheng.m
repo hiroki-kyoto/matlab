@@ -1,0 +1,12 @@
+%验证去除累积误差之后的高度曲线是否符合我们预期：
+t=1:1:41;
+time=0.15*t;
+x=0.0036;
+z=xlsread('b1.xls','sheet1','A1:A41');
+z=z';
+nz=z-x*t;
+plot(time,nz);
+xlabel('时间(t)');
+ylabel('高度(m)');
+legend('去除累积误差后的高度变化图');
+xlswrite('final.xls',nz');
